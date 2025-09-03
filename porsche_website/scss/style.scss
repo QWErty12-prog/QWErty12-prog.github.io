@@ -1,0 +1,195 @@
+@import "./variables.scss", "./extend.scss", "./mixins.scss";
+body {
+  @extend %body;
+}
+html.noscroll{
+  overflow: hidden;
+}
+header {
+  height: 65px;
+  border-bottom: 1px solid #ffffff;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  a {
+    color: $links;
+    text-decoration: none;
+  }
+}
+.menu,
+.nav-menu,
+.buttons_in_menu {
+  display: flex;
+}
+.menu {
+  @extend %menu;
+}
+.nav-menu {
+  @extend %nav-menu;
+}
+.points {
+  @extend %points-menu;
+}
+.buttons_in_menu {
+  cursor: pointer;
+  .basket {
+    margin-left: 8px;
+  }
+  .callme {
+    margin-left: 8px;
+  }
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+.bar {
+  @extend %bar;
+}
+.active:before {
+  @extend %active_before;
+}
+.block {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.firstLine {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  div {
+    font-size: 14px;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+  &:last-child {
+    text-align: center;
+  }
+}
+.Icons {
+  display: flex;
+}
+.firstIcon,
+.secondIcon,
+.thirdIcon {
+  padding: 16px;
+}
+.modal {
+  @extend %modal;
+}
+.modal-content {
+  @extend %modal_content;
+}
+.close {
+  @extend %close;
+  &:hover,
+  &:focus {
+    @extend %button_close;
+  }
+}
+form {
+  @extend %first_form;
+}
+.title, .subtitle {
+  color: #eee;
+  font-family: $font_Oswald;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.subtitle {
+  font-size: 16px;
+  margin-top: 10px;
+}
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+.ic1 {
+  margin-top: 40px;
+}
+.ic2 {
+  margin-top: 30px;
+}
+.cut {
+  @extend %cut;
+}
+.input {
+  @extend %input;
+}
+.placeholder {
+  @extend %placeholder;
+}
+.submit {
+  @extend %submit;
+}
+.modal2 {
+  @extend %modal;
+}
+.form2 {
+  @extend %second_form;
+}
+.month-cvv {
+  display: flex;
+}
+.after-payment {
+  @extend %after_payment;
+}
+.cut1 {
+  @extend %cut1;
+}
+.cut1-short {
+  width: 50px;
+}
+.cut1-middle {
+  width: 70px;
+}
+.close2 {
+  @extend %close;
+  &:hover,
+  &:focus {
+    @extend %button_close;
+  }
+}
+@media (max-width: 1010px) {
+  .menu {
+    width: 90%;
+  }
+}
+@media (max-width: 940px) {
+  .hamburger {
+    @include hamburger;
+  }
+  .buttons_in_menu {
+    margin-right: 20px;
+  }
+  .points {
+    @include points_mobile;
+  }
+}
+@media (max-width: 500px) {
+  .modal2, .modal {
+    zoom: 80%;
+    width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  .profile svg,
+  .basket svg,
+  .callme svg {
+    width: 25pt;
+    height: 25pt;
+  }
+  .firstLine{
+    flex-direction: column;
+    align-items: center;
+  }
+}

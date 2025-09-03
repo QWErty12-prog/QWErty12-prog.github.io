@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+.button-first-taycan2, .button-first-taycan1 {
+  font-family: "Oswald";
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 156px;
+  height: 48px;
+  border-radius: 40px;
+}
+.button-first-taycan2 a, .button-first-taycan1 a {
+  visibility: hidden;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.main-main-page {
+  display: flex;
+}
+
+.main-page {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.main-page h1 {
+  margin-top: 100px;
+  font-family: "Oswald";
+  font-weight: 650;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+}
+
+.photo-car {
+  height: 510px;
+  background: url(../images-second-page/porsche911.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.head-text {
+  font-family: "Oswald";
+  font-weight: 550;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+}
+
+.description_car {
+  height: 116px;
+  margin: 0 51px 24px 29px;
+}
+
+.add-text p {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300;
+  opacity: 0.9;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.gallery {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.gallery section img {
+  border-radius: 10px;
+  width: 302px;
+  height: 170px;
+  opacity: 0;
+  transform: translateY(60%);
+  transition: opacity 0.7s ease, transform 1s ease;
+}
+.gallery section img.animated_photo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gallery section .first-text {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  margin: 16px 0px 0px 0px;
+}
+.gallery section .second-text {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #adadad;
+  margin: 0;
+}
+
+.text-about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-car-taycan {
+  max-width: 100vw;
+  margin-top: 30px;
+  min-height: 540px;
+  background: url(../images-second-page/taycan.jpg);
+  background-size: cover;
+  background-position: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(40%);
+  transition: opacity 0.9s ease, transform 1s ease;
+}
+.photo-car-taycan.animate_secondimage {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-taycan {
+  display: flex;
+  flex-direction: column;
+  margin-left: 56px;
+}
+
+.head-text-taycan {
+  font-family: "Oswald";
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -1.5px;
+  height: 60px;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: opacity 0.5s ease, transform 1s ease;
+}
+.head-text-taycan.animate_text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.add-text-taycan {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: opacity 0.5s ease, transform 1s ease;
+}
+.add-text-taycan.animate_text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.button-first-taycan1 {
+  background-color: #000000;
+  border: 1px solid white;
+}
+
+.button-first-taycan2 {
+  background-color: #363636;
+  margin-left: 12px;
+}
+
+.buttons {
+  display: flex;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.7s ease, transform 1s ease;
+}
+.buttons.animate_buttons_after_taycan {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-cars {
+  margin-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  height: 221px;
+  flex-wrap: wrap;
+}
+.gallery-cars section img {
+  border-radius: 10px;
+  width: 302px;
+  height: 170px;
+  opacity: 0;
+  transform: translateY(60%);
+  transition: opacity 0.9s ease, transform 1s ease;
+}
+.gallery-cars section img.animated_photo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.buttons-buy {
+  text-align: center;
+  cursor: pointer;
+  font-family: "Oswald";
+  border: 1px solid white;
+  padding: 7px 15px;
+  font-weight: 200;
+  border-radius: 30px;
+  width: 60px;
+  opacity: 0;
+  transform: translateY(-300%);
+  transition: opacity 0.5s ease, transform 1s ease;
+  z-index: 1;
+}
+.buttons-buy:hover {
+  border: 1px solid #000000;
+  background-color: #e51a1a;
+  transition: all 0.2s ease-in-out;
+}
+.buttons-buy:active {
+  transform: scale(0.8);
+}
+
+.animate_buttons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 4em;
+  height: 100px;
+}
+
+@media (max-width: 1220px) {
+  .gallery section img, .buttons-buy, .gallery-cars section img, .buttons, .photo-car-taycan {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .head-text-taycan, .add-text-taycan {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .photo-car {
+    background-size: contain;
+    background-position: center;
+  }
+  .description_car {
+    max-width: 85vw;
+    margin: 0 49px 24px 55px;
+  }
+  .gallery {
+    justify-content: space-around;
+  }
+  .photo-car-taycan {
+    margin-top: 50px;
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .gallery-cars {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 940px) {
+  footer {
+    margin-top: 16em;
+  }
+}
+@media (max-width: 768px) {
+  .modal2 {
+    width: 70%;
+  }
+  .gallery-cars section:last-child {
+    margin-top: 10px;
+  }
+  .buttons {
+    justify-content: center;
+    margin-left: 0;
+  }
+  .text-taycan {
+    margin-left: 30px;
+    justify-content: flex-end;
+  }
+  .photo-car {
+    justify-content: flex-end;
+    height: 350px;
+    background-position: top;
+  }
+  .porsche-taycan {
+    margin-top: 30px;
+  }
+  .head-text-taycan {
+    font-size: 28px;
+  }
+  .add-text-taycan {
+    font-size: 16px;
+  }
+  .photo-car-taycan {
+    min-height: 480px;
+  }
+  .main-page {
+    padding: 10px 0;
+  }
+  .description-car {
+    height: 140px;
+    width: 100%;
+  }
+  .description-car .head-text {
+    font-size: 35px;
+  }
+  .description-car .add-text {
+    text-align: justify;
+  }
+  .gallery section {
+    margin-top: 10px;
+  }
+  .main-page h1 {
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+  }
+  .container1 {
+    width: 80vw;
+  }
+  .button-car {
+    margin-right: 0;
+    width: 70%;
+  }
+  .p1_911 {
+    line-height: 22px;
+  }
+  footer {
+    margin-top: 20em;
+  }
+}
+@media (max-width: 600px) {
+  footer {
+    margin-top: 33em;
+  }
+}
+@media (max-width: 430px) {
+  .firstLine {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .firstLine div {
+    padding: 2px;
+    font-size: 14px;
+  }
+  footer {
+    margin-top: 37em;
+  }
+  .after-payment {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
