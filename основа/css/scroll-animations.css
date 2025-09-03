@@ -1,0 +1,214 @@
+/* Анимации появления при прокрутке */
+
+/* Базовые классы для анимаций */
+.animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Различные типы анимаций */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Задержки для создания эффекта каскада */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.delay-500 {
+    transition-delay: 0.5s;
+}
+
+/* Специальные анимации для киберпанк-стиля */
+.glitch-in {
+    opacity: 0;
+    position: relative;
+    transition: opacity 0.4s ease-out;
+}
+
+.glitch-in.active {
+    opacity: 1;
+    animation: glitch 0.8s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-5px, 5px);
+    }
+    40% {
+        transform: translate(-5px, -5px);
+    }
+    60% {
+        transform: translate(5px, 5px);
+    }
+    80% {
+        transform: translate(5px, -5px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.glitch-in.active::before,
+.glitch-in.active::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-in.active::before {
+    color: #e63946;
+    z-index: -1;
+    animation: glitch-anim 0.4s cubic-bezier(.25, .46, .45, .94) both reverse;
+}
+
+.glitch-in.active::after {
+    color: #0ff;
+    z-index: -2;
+    animation: glitch-anim 0.5s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+@keyframes glitch-anim {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-3px, 3px);
+    }
+    40% {
+        transform: translate(-3px, -3px);
+    }
+    60% {
+        transform: translate(3px, 3px);
+    }
+    80% {
+        transform: translate(3px, -3px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Анимация для карточек */
+.card-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-animate.active:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
+}
+
+/* Анимация для заголовков в киберпанк-стиле */
+.cyber-title {
+    opacity: 0;
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+
+.cyber-title.active {
+    opacity: 1;
+    animation: cyber-text 0.8s ease forwards;
+}
+
+@keyframes cyber-text {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Анимация для прогресс-баров */
+.skill-progress {
+    width: 0 !important;
+    transition: width 1.2s cubic-bezier(.17,.67,.83,.67);
+}
+
+.skill-progress.active {
+    /* Ширина будет установлена через JavaScript на основе data-width атрибута */
+}
+

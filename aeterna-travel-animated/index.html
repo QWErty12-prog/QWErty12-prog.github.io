@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aeterna Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+  <body class="bg-[#0E1113] text-[#E8EDF0] antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-transparent">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="#" class="flex items-center gap-2 text-white">
+            <svg class="w-8 h-8 text-[#20D6C9]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+            </svg>
+            <span class="font-bold text-xl tracking-wide">AETERNA</span>
+          </a>
+
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a href="#tours" class="text-sm font-semibold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors relative group">
+              Все туры
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20D6C9] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#promo" class="text-sm font-semibold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors relative group">
+              О нас
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20D6C9] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#gallery" class="text-sm font-semibold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors relative group">
+              Галерея
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20D6C9] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#cta" class="text-sm font-semibold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors relative group">
+              Контакты
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20D6C9] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </nav>
+
+          <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
+            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full bg-[#0E1113] transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden z-50 p-6">
+        <div class="flex justify-end mb-8">
+          <button id="close-mobile-menu" class="text-white p-2">
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center h-full -mt-16 space-y-8">
+          <a href="#tours" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors">Все туры</a>
+          <a href="#promo" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors">О нас</a>
+          <a href="#gallery" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors">Галерея</a>
+          <a href="#cta" onclick="closeMobileMenu()" class="text-2xl font-bold uppercase tracking-wider text-[#E8EDF0] hover:text-[#20D6C9] transition-colors">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        <div id="hero-background" class="absolute inset-0 transition-opacity duration-1000">
+          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat ken-burns" id="hero-image"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/40"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center justify-between">
+          <div class="flex items-start gap-4">
+            <div class="text-right">
+              <p class="text-sm uppercase tracking-widest text-[#90A0A8] writing-mode-vertical transform rotate-180">Авторские туры</p>
+              <div class="h-16 w-px bg-[#20D6C9] mx-auto mt-2 slide-in-left"></div>
+            </div>
+            <div class="text-left">
+              <h1 id="hero-title" class="text-6xl md:text-8xl lg:text-9xl font-extrabold uppercase tracking-wider slide-up"></h1>
+              <p id="hero-location" class="text-2xl md:text-4xl font-bold uppercase tracking-[0.2em] text-[#E8EDF0] mt-2 slide-up-delay"></p>
+            </div>
+          </div>
+
+          <div class="relative md:absolute right-4 md:right-6 lg:right-8 flex flex-col items-center gap-4 mt-6 md:mt-0">
+            <div class="flex flex-col items-center gap-2 slide-in-right" id="hero-indicators">
+              <!-- Indicators will be populated by JS -->
+            </div>
+            <div class="h-32 w-px bg-[#1E2A30] relative slide-in-right-delay">
+              <div id="hero-progress" class="absolute top-0 left-0 w-full bg-[#20D6C9] h-8 transition-all duration-500 ease-out" style="transform: translateY(0%);"></div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#tours" class="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+      </section>
+
+      <!-- Tours Section -->
+      <section id="tours" class="py-20 md:py-32 bg-[#11161A] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-16 fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold uppercase">
+              Популярные <span class="text-[#20D6C9]">направления</span>
+            </h2>
+            <div class="mt-4 max-w-md mx-auto h-0.5 bg-gradient-to-r from-transparent via-[#20D6C9] to-transparent"></div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="tours-grid">
+            <!-- Tour cards will be populated by JS -->
+          </div>
+
+          <div class="mt-16 text-center">
+            <a href="#cta" class="relative inline-flex items-center gap-2 text-lg font-semibold text-[#20D6C9] group transition-opacity duration-1000 delay-500">
+              Заказать индивидуальный тур
+              <span class="block transition-transform duration-300 group-hover:translate-x-2">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </span>
+              <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-[#20D6C9] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Promo Section -->
+      <section id="promo" class="py-20 md:py-32 bg-[#0E1113] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="lg:pr-10 fade-in-left">
+              <h2 class="text-4xl md:text-5xl font-bold uppercase leading-tight">
+                Открой для себя<br />
+                <span class="text-[#20D6C9]">Целый мир</span>
+              </h2>
+              <div class="w-24 h-1 bg-[#20D6C9] my-8"></div>
+              <p class="text-lg text-[#90A0A8] leading-relaxed">
+                Мы создаем не просто туры, а уникальные путешествия, наполненные впечатлениями. Каждое направление тщательно проработано нашей командой, чтобы вы могли насладиться красотой мира без забот. Откройте новые горизонты вместе с нами.
+              </p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6 fade-in-right">
+              <div class="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer">
+                <img src="https://picsum.photos/seed/promo1/800/800" alt="Video preview" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div class="w-20 h-20 rounded-full bg-[#20D6C9]/80 backdrop-blur-sm flex items-center justify-center text-[#0E1113] transition-transform duration-300 group-hover:scale-110">
+                    <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.717-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-[#141A1F] aspect-square rounded-2xl p-8 flex flex-col justify-center items-center text-center border border-[#1E2A30]">
+                <svg class="w-16 h-16 text-[#20D6C9] mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21m-6.364-.636l1.768-1.768m11.232 1.768l-1.768-1.768M3 12h2.25m13.5 0H21m-6.364-6.364l1.768 1.768m-11.232-1.768l1.768 1.768" />
+                </svg>
+                <h3 class="text-xl font-bold text-white">Более 50 направлений</h3>
+                <p class="text-[#90A0A8] mt-2 text-sm">От ледников Арктики до пустынь Африки.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery" class="py-20 md:py-32 bg-[#11161A] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12 fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold uppercase">Галерея</h2>
+            <p class="mt-4 text-[#90A0A8] max-w-2xl mx-auto">Моменты из наших путешествий, которые останутся в памяти навсегда.</p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[250px] gap-4" id="gallery-grid">
+            <!-- Gallery images will be populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Form Section -->
+      <section id="cta" class="relative py-24 md:py-40 bg-cover bg-center bg-fixed" style="background-image: url('images/eagle.jpg')">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative max-w-4xl mx-auto px-6 lg:px-8">
+          <div class="bg-[#141A1F]/80 backdrop-blur-lg border border-[#1E2A30] p-8 md:p-12 rounded-2xl shadow-2xl shadow-black/30 scale-in">
+            <div class="text-center mb-8">
+              <h2 class="text-4xl md:text-5xl font-bold uppercase">Записаться в тур</h2>
+              <p class="mt-4 text-[#90A0A8] max-w-xl mx-auto">Оставьте заявку, и наш менеджер свяжется с вами для уточнения деталей и ответа на все ваши вопросы.</p>
+            </div>
+            <form class="space-y-6" id="cta-form">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="relative">
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Ваше имя"
+                    class="w-full h-14 bg-[#0F1417] border border-[#1E2A30] rounded-xl px-4 text-[#E8EDF0] placeholder:text-[#90A0A8] focus:outline-none focus:ring-2 focus:ring-[#20D6C9] focus:border-[#20D6C9] transition-all"
+                  />
+                </div>
+                <div class="relative">
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="E-mail или Телефон"
+                    class="w-full h-14 bg-[#0F1417] border border-[#1E2A30] rounded-xl px-4 text-[#E8EDF0] placeholder:text-[#90A0A8] focus:outline-none focus:ring-2 focus:ring-[#20D6C9] focus:border-[#20D6C9] transition-all"
+                  />
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="relative">
+                  <select
+                    id="tour-select"
+                    class="w-full h-14 bg-[#0F1417] border border-[#1E2A30] rounded-xl px-4 text-[#E8EDF0] placeholder:text-[#90A0A8] focus:outline-none focus:ring-2 focus:ring-[#20D6C9] focus:border-[#20D6C9] transition-all"
+                  >
+                    <option value="">Выберите тур</option>
+                    <!-- Tour options will be populated by JS -->
+                  </select>
+                </div>
+                <div class="relative">
+                  <input
+                    id="date"
+                    type="date"
+                    placeholder="Предполагаемая дата"
+                    class="w-full h-14 bg-[#0F1417] border border-[#1E2A30] rounded-xl px-4 text-[#E8EDF0] placeholder:text-[#90A0A8] focus:outline-none focus:ring-2 focus:ring-[#20D6C9] focus:border-[#20D6C9] transition-all"
+                  />
+                </div>
+              </div>
+              <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                <button type="submit" class="h-14 px-8 rounded-2xl bg-[#20D6C9] text-[#0E1113] text-base font-bold uppercase tracking-wider transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#141A1F] focus:ring-[#20D6C9] hover:bg-opacity-90 hover:shadow-lg hover:shadow-[#20D6C9]/20 active:scale-95">
+                  Отправить заявку
+                </button>
+                <button type="button" class="h-14 px-8 rounded-2xl bg-transparent border-2 border-[#20D6C9] text-[#20D6C9] text-base font-bold uppercase tracking-wider transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#141A1F] focus:ring-[#20D6C9] hover:bg-[#20D6C9]/10 active:scale-95">
+                  Узнать больше
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#11161A] border-t border-[#1E2A30]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="flex items-center gap-2">
+            <svg class="w-7 h-7 text-[#20D6C9]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+            </svg>
+            <span class="font-bold text-lg">AETERNA</span>
+          </div>
+          <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            <a href="#tours" class="text-sm text-[#90A0A8] hover:text-white">Все туры</a>
+            <a href="#promo" class="text-sm text-[#90A0A8] hover:text-white">О нас</a>
+            <a href="#gallery" class="text-sm text-[#90A0A8] hover:text-white">Галерея</a>
+            <a href="#" class="text-sm text-[#90A0A8] hover:text-white">Отзывы</a>
+          </nav>
+          <div class="flex items-center gap-5">
+            <a href="#" class="text-[#90A0A8] hover:text-[#20D6C9] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
+              </svg>
+            </a>
+            <a href="#" class="text-[#90A0A8] hover:text-[#20D6C9] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12C2,16.42 5.58,20 10,20C10.76,20 11.5,19.92 12.19,19.77L13.75,21.34L15.31,19.78L13.68,18.15C15.31,17.1 16.5,15.24 16.5,13.12C16.5,10.3 14.2,8 11.25,8C8.3,8 6,10.3 6,13.12C6,16.14 8.5,18.5 11.53,18.5C12.06,18.5 12.57,18.41 13.06,18.24L14,19.18L13.13,20.05L12.19,19.12C12.13,19.13 12.06,19.14 12,19.14C9.17,19.14 6.86,16.83 6.86,14C6.86,11.17 9.17,8.86 12,8.86C14.83,8.86 17.14,11.17 17.14,14C17.14,16.1 15.8,17.86 14,18.59L15,19.56C16.89,18.56 18,16.43 18,14A6,6 0 0,0 12,8Z" />
+              </svg>
+            </a>
+            <a href="#" class="text-[#90A0A8] hover:text-[#20D6C9] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-[#1E2A30] text-center text-xs text-[#90A0A8]">
+          <p>&copy; <span id="current-year"></span> Aeterna Travel. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <div class="relative w-full h-full flex items-center justify-center">
+        <button id="close-lightbox" class="absolute top-4 right-4 text-white p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors z-10">
+          <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <button id="prev-btn" class="absolute left-4 sm:left-8 text-white p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors z-10">
+          <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+
+        <div class="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+          <img id="lightbox-image" src="" alt="Gallery view" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl shadow-black/50" />
+        </div>
+
+        <button id="next-btn" class="absolute right-4 sm:right-8 text-white p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors z-10">
+          <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

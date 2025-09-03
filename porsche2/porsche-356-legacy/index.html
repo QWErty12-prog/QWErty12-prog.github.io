@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Porsche 356 Legacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'porsche-beige': '#F5F3F0',
+                        'porsche-dark': '#1A1A1A',
+                        'porsche-red': '#8B2C26',
+                        'porsche-gray': '#E8E6E3',
+                        'porsche-light-gray': '#F0EDEA',
+                        'porsche-dark-gray': '#2A2A2A'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    fontSize: {
+                        '12vw': '12vw',
+                        '10vw': '10vw',
+                        '6rem': '6rem',
+                        '8rem': '8rem',
+                        '10rem': '10rem'
+                    },
+                    letterSpacing: {
+                        'widest-lg': '0.3em',
+                        'widest': '0.1em',
+                        'tighter': '-0.05em'
+                    },
+                    maxWidth: {
+                        'screen-2xl': '1536px'
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.8s ease-out forwards'
+                    },
+                    animationDelay: {
+                        '200': '0.2s',
+                        '400': '0.4s',
+                        '600': '0.6s'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F5F3F0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #8B2C26;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B2020;
+        }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Preserve original opacity classes for JS */
+        .opacity-0 { opacity: 0; }
+        .opacity-100 { opacity: 1; }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate.scrolled {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased font-inter bg-porsche-beige text-porsche-dark min-h-screen scroll-smooth">
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen bg-gradient-to-b from-porsche-beige to-porsche-gray overflow-hidden">
+            <!-- Background gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-porsche-beige to-porsche-gray"></div>
+
+            <!-- Main content container -->
+            <div class="relative z-10 max-w-screen-2xl mx-auto h-full px-6 sm:px-10">
+                <!-- Header -->
+                <div class="flex justify-between items-center py-6">
+                    <div class="font-black text-xl tracking-widest-lg">PORSCHE</div>
+                    <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-widest">
+                        <a href="#design" class="transition-colors">DESIGN</a>
+                        <a href="#performance" class="transition-colors">PERFORMANCE</a>
+                        <a href="#technology" class="transition-colors">TECHNOLOGY</a>
+                    </nav>
+                    <div class="flex items-center gap-3 cursor-pointer" id="menu-toggle">
+                        <div class="flex flex-col gap-1">
+                            <span class="block w-5 h-0.5 bg-porsche-dark transition-transform duration-300"></span>
+                            <span class="block w-5 h-0.5 bg-porsche-dark transition-transform duration-300"></span>
+                        </div>
+                        <span class="text-sm font-medium tracking-widest">MENU</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity duration-300" id="mobile-menu">
+                    <div class="absolute top-0 right-0 w-64 h-full bg-porsche-beige p-6 transform translate-x-full transition-transform duration-300" id="mobile-menu-panel">
+                        <div class="flex justify-between items-center mb-8">
+                            <div class="font-black text-xl tracking-widest-lg">PORSCHE</div>
+                            <button class="text-porsche-dark" id="close-menu">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <nav class="flex flex-col gap-6 text-sm font-medium tracking-widest">
+                            <a href="#design" class="transition-colors hover:text-porsche-red">DESIGN</a>
+                            <a href="#performance" class="transition-colors hover:text-porsche-red">PERFORMANCE</a>
+                            <a href="#technology" class="transition-colors hover:text-porsche-red">TECHNOLOGY</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Hero content -->
+                <div class="flex flex-col h-full pt-8">
+                    <!-- Top section with text and circle -->
+                    <div class="flex-1 flex items-start justify-between pt-8">
+                        <!-- Left side - Text content -->
+                        <div class="flex-1 max-w-2xl">
+                            <h1 class="text-3xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6 animate-fade-in-up">
+                                TIMELESS DESIGN, UNMATCHED PERFORMANCE
+                            </h1>
+                            <p class="text-lg md:text-xl font-medium leading-relaxed mb-12 animate-fade-in-up animation-delay-200">
+                                SINCE 1948. EXPERIENCE THE LEGACY OF THE PORSCHE 356 ON EVERY JOURNEY
+                            </p>
+                        </div>
+
+                        <!-- Right side - View Gallery circle -->
+                        <div class="hidden lg:flex items-center justify-center ml-8 animate-fade-in-up animation-delay-400">
+                            <div class="w-48 h-48 border border-porsche-red rounded-full flex items-center justify-center text-center transition-all cursor-pointer" onclick="scrollToIconic()">
+                                <span class="text-sm font-medium tracking-widest leading-tight">VIEW<br/>GALLERY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom section with car image and button -->
+                    <div class="flex-1 relative">
+                        <!-- Large PORSCHE 356 text -->
+                        <div class="absolute top-8 left-0 z-20 text-porsche-red font-bold tracking-tighter leading-none animate-fade-in-up animation-delay-300 text-12vw md:text-10vw lg:text-6rem xl:text-8rem 2xl:text-10rem">
+                            <h2>PORSCHE 356</h2>
+                        </div>
+
+                        <!-- Car image -->
+                        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-11/12 max-w-5xl z-10 animate-fade-in-up animation-delay-500">
+                            <img
+                                src="images/main.png"
+                                alt="White Porsche 356"
+                                class="w-full h-auto object-contain"
+                            />
+                        </div>
+
+                        <!-- Book test drive button -->
+                        <div class="absolute bottom-24 right-4 md:bottom-28 md:right-8 z-30 animate-fade-in-up animation-delay-600">
+                            <button class="bg-porsche-beige text-porsche-dark text-sm font-medium tracking-widest px-6 md:px-8 py-3 border border-porsche-dark transition-colors underline">BOOK A TEST DRIVE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconic Section -->
+        <section id="iconic" class="border-t border-black">
+            <div class="grid grid-cols-1 lg:grid-cols-2 max-w-screen-2xl mx-auto">
+                <!-- Left Column: Large Image -->
+                <div class="px-6 sm:px-10 py-6 sm:py-10">
+                    <img
+                        src="images/speedstr.jpg"
+                        alt="Rear of a white Porsche 356 Speedster"
+                        class="w-full h-auto object-cover"
+                    />
+                </div>
+                <!-- Right Column: Details -->
+                <div class="px-6 sm:px-10 py-6 sm:py-10 flex flex-col justify-center border-l border-black">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                        <!-- Image spanning both columns -->
+                        <div class="col-span-1 sm:col-span-2 flex justify-center mb-8">
+                            <img
+                                src="images/porsche2.jpg"
+                                alt="Classic Porsche 356 on the road"
+                                class="w-96 h-72 object-cover"
+                            />
+                        </div>
+                        <div class="ml-6 sm:ml-8">
+                            <h3 class="text-sm font-bold tracking-widest text-porsche-red mb-4">THE ICONIC PORSCHE 356</h3>
+                            <p class="text-sm leading-relaxed">
+                                The Porsche 356 is a legendary sports car that has forever changed the landscape of premium performance vehicles. With its iconic design and exhilarating performance, the 356 has cemented its place as one of the most sought-after and influential automobiles of all time.
+                            </p>
+                        </div>
+                        <div class="ml-6 sm:ml-8">
+                            <h3 class="text-sm font-bold tracking-widest text-porsche-red mb-4">KEY FEATURES</h3>
+                            <ul class="text-sm leading-relaxed space-y-1">
+                                <li>- Flat-six engine</li>
+                                <li>- Classic design</li>
+                                <li>- Intuitive handling</li>
+                                <li>- High maneuverability</li>
+                                <li>- Reliability</li>
+                                <li>- Timeless elegance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="border-t border-black">
+            <div class="grid grid-cols-1 lg:grid-cols-2 max-w-screen-2xl mx-auto">
+                <!-- Left Column: Title -->
+                <div class="flex items-start justify-center lg:justify-start px-6 sm:px-10 lg:px-20 py-6">
+                    <h2 class="text-5xl md:text-6xl font-bold tracking-tighter leading-none">
+                        NOTHING
+                        <br />
+                        COMPARES
+                    </h2>
+                </div>
+                <!-- Right Column: Stats Block -->
+                <div class="flex items-center px-6 sm:px-10 py-10">
+                    <div class="w-full border border-porsche-red">
+                        <div class="flex items-center px-8 py-6 border-b border-porsche-red">
+                            <span class="text-5xl font-bold w-14 flex-shrink-0">60</span>
+                            <p class="text-sm font-medium leading-relaxed flex-1 ml-6">mph in just 4.5 seconds, highlighting the 356's impressive power and speed</p>
+                        </div>
+                        <div class="flex items-center px-8 py-6 border-b border-porsche-red">
+                            <span class="text-5xl font-bold w-14 flex-shrink-0">70</span>
+                            <p class="text-sm font-medium leading-relaxed flex-1 ml-6">years of Porsche engineering excellence make the 356 a symbol of cutting-edge design and performance</p>
+                        </div>
+                        <div class="flex items-center px-8 py-6 bg-porsche-red text-porsche-beige">
+                            <span class="text-5xl font-bold w-28 flex-shrink-0">300+</span>
+                            <p class="text-sm font-medium leading-relaxed flex-1 ml-6">custom-engineered parts guarantee the unmatched performance and reliability of the Porsche 356</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Section -->
+        <section id="details" class="border-t border-black animate-slide-in-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 max-w-screen-2xl mx-auto">
+                <div class="px-6 sm:px-10 py-6">
+                    <h3 class="text-base font-black tracking-widest text-porsche-dark mb-8">COMPANY</h3>
+                    <img
+                        src="images/old.jpg"
+                        alt="Porsche 356 Schematic Sketch"
+                        class="w-full max-w-80 object-cover mb-8"
+                    />
+                    <p class="text-sm leading-relaxed max-w-56">
+                        Every component, from the engine to the suspension, has been engineered to the highest standards of quality and performance.
+                    </p>
+                </div>
+                <div class="px-6 sm:px-10 py-6 md:border-l border-black">
+                    <h3 class="text-base font-black tracking-widest text-porsche-dark mb-8">TECHNICAL PERFORMANCE</h3>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Image Row -->
+                        <div class="col-span-1">
+                            <img
+                                src="images/rule.jpg"
+                                alt="Porsche 356 Dashboard"
+                                class="w-full h-[32rem] object-cover"
+                            />
+                        </div>
+                        <div class="col-span-1">
+                            <img
+                                src="images/rule1.jpg"
+                                alt="Porsche 356 Rear Vent"
+                                class="w-full h-64 object-cover"
+                            />
+                        </div>
+
+                        <!-- Text Row -->
+                        <div class="col-span-1 pt-2 text-sm leading-relaxed pr-2">
+                            <p>
+                                The Porsche 356 features a rear-mounted flat-four engine with 40 to 95 horsepower. Weighing around 1,800 pounds, it delivers impressive agility.
+                            </p>
+                        </div>
+                        <div class="col-span-1 text-sm leading-relaxed -mt-60">
+                            <p>
+                                The 356 reaches a top speed of 110 mph and accelerates from 0 to 60 mph in 7.5 seconds.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-black text-porsche-dark bg-porsche-light-gray animate-slide-in-right">
+        <div class="w-full pb-8">
+
+
+
+            <div class="flex flex-col gap-8 pt-8 pb-8 border-b border-black md:flex-row md:justify-between md:items-center px-6 sm:px-10" style="border-bottom-width: 1px;">
+                <div class="flex flex-col gap-1">
+                    <div class="font-black text-xl tracking-widest-lg text-porsche-red">PORSCHE</div>
+                    <p class="text-xs uppercase tracking-widest">Timeless elegance,</p>
+                    <p class="text-xs uppercase tracking-widest">uncompromising performance</p>
+                </div>
+                <div class="flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-8">
+                    <div class="flex gap-8">
+                        <a href="#" class="text-sm font-medium tracking-widest transition-colors">PRIVACY POLICY</a>
+                        <a href="#" class="text-sm font-medium tracking-widest transition-colors">CONTACT</a>
+                        <a href="#" class="text-sm font-medium tracking-widest transition-colors">ABOUT US</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-right pt-8 px-6 sm:px-10">
+                <p class="text-xs tracking-wide text-porsche-dark/60">&copy; 2024 Porsche</p>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

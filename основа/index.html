@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyberpunk themed portfolio website - ZeroPoint">
+    <meta name="theme-color" content="#e63946">
+    <meta name="robots" content="index, follow">
+    <title>ZeroPoint | Cyberpunk Theme</title>
+
+    <!-- Performance optimization meta tags -->
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="images/icon.png" type="image/png" sizes="180x180">
+    <link rel="icon" href="images/icon.png" type="image/png" sizes="192x192">
+    <link rel="icon" href="images/icon.png" type="image/png" sizes="512x512">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Critical CSS - loaded immediately -->
+    <link rel="stylesheet" href="css/critical.css">
+
+    <!-- Non-critical CSS - loaded asynchronously -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/preloader.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/parallax.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/scroll-animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/preloader.css">
+        <link rel="stylesheet" href="css/parallax.css">
+        <link rel="stylesheet" href="css/scroll-animations.css">
+    </noscript>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images/cyber2.png" as="image" type="image/png">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <style>
+        /* Стили для видео фона */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            opacity: 0.7;
+            pointer-events: none;
+            /* Оптимизация производительности */
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            /* Предотвращение мерцания */
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            /* Дополнительная оптимизация */
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+        }
+
+        @media (max-width: 768px) {
+            .video-background {
+                opacity: 0.5;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-background {
+                opacity: 0.3;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-loader">
+                <svg viewBox="0 0 100 100">
+                    <circle 
+                        class="preloader-loader-circle" 
+                        cx="50" 
+                        cy="50" 
+                        r="45" 
+                        fill="none" 
+                        stroke-width="4"
+                    />
+                </svg>
+            </div>
+            <div class="preloader-logo">
+                <span class="highlight">ZERO</span>POINT
+            </div>
+            <div class="preloader-progress">
+                <div class="preloader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Background -->
+    <video id="video-background" class="video-background" autoplay muted loop playsinline preload="auto" webkit-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait">
+        <source src="images/vid2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Parallax Background -->
+    <div class="parallax-container">
+        <div class="parallax-layer parallax-grid"></div>
+        <div class="parallax-layer parallax-glow"></div>
+        <div class="parallax-layer parallax-lines"></div>
+    </div>
+    <div class="cyber-grid"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><span class="highlight">ZERO</span>POINT</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active" data-lang-key="nav-home">Home</a></li>
+                <li><a href="#services" data-lang-key="nav-services">Services</a></li>
+                <li><a href="#portfolio" data-lang-key="nav-portfolio">Portfolio</a></li>
+                <li><a href="#skills" data-lang-key="nav-skills">Skills</a></li>
+                <li><a href="#contact" data-lang-key="nav-contact">Contact</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <span class="lang-option active" data-lang="en">EN</span>
+                <label class="switch">
+                    <input type="checkbox" id="langToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="lang-option" data-lang="ru">RU</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <div class="avatar-container scale-in">
+                        <picture>
+                            <source srcset="images/cyber2.png 2x, images/cyber2.png 1x" type="image/png">
+                            <img src="images/cyber2.png" alt="Profile Avatar" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h1 class="glitch-in" data-lang-key="hero-greeting">Hi, It's <span class="highlight">[Name]</span></h1>
+                    <h2 class="slide-up delay-200" data-lang-key="hero-profession">I'm a <span class="highlight">[Developer / Designer]</span></h2>
+                    <p class="fade-in delay-400" data-lang-key="hero-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget felis vitae tortor congue viverra.</p>
+                    <div class="cta-buttons slide-up delay-500 active">
+                        <a href="#contact" class="btn btn-primary" data-lang-key="hire-me">Нанять меня</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-lang-key="services-title">My <span class="highlight">Services</span></h2>
+                <p data-lang-key="services-subtitle">What I can do for you</p>
+            </div>
+            <div class="services-grid cascade-container">
+                <div class="service-card card-animate cascade-item">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-lang-key="web-dev-title">Web Development</h3>
+                    <p data-lang-key="web-dev-desc">Creating responsive and dynamic websites with modern technologies.</p>
+                </div>
+                <div class="service-card card-animate cascade-item">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 data-lang-key="uiux-title">UI/UX Design</h3>
+                    <p data-lang-key="uiux-desc">Designing intuitive and aesthetically pleasing user interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="cyber-title" data-lang-key="portfolio-title">My <span class="highlight">Portfolio</span></h2>
+                <p class="fade-in" data-lang-key="portfolio-subtitle">Projects I've worked on</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card card-animate">
+                    <div class="portfolio-image">
+                        <img src="images/cyber2.png" alt="Porsche Website" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="../porsche_website/index.html" class="btn btn-primary" target="_blank" data-lang-key="view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Porsche Website</h3>
+                        <p data-lang-key="portfolio-desc-porsche">Modern website showcasing Porsche cars with responsive design and smooth animations.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card card-animate">
+                    <div class="portfolio-image">
+                        <img src="images/cyber2.png" alt="Porsche 356 Legacy" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="../porsche2/porsche-356-legacy/index.html" class="btn btn-primary" target="_blank" data-lang-key="view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Porsche 356 Legacy</h3>
+                        <p data-lang-key="portfolio-desc-porsche356">Interactive showcase of the legendary Porsche 356 with modern web technologies.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card card-animate">
+                    <div class="portfolio-image">
+                        <img src="images/cyber2.png" alt="Aeterna Travel" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="../aeterna-travel-animated/index.html" class="btn btn-primary" target="_blank" data-lang-key="view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Aeterna Travel</h3>
+                        <p data-lang-key="portfolio-desc-travel">Beautiful animated travel website showcasing destinations with smooth parallax effects.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="cyber-title" data-lang-key="skills-title">My <span class="highlight">Skills</span></h2>
+                <p class="fade-in" data-lang-key="skills-subtitle">Technologies I work with</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>React</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3>Node.js</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Removed Education & Experience Sections -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="cyber-title" data-lang-key="contact-title">Contact <span class="highlight">Me</span></h2>
+                <p class="fade-in" data-lang-key="contact-subtitle">Get in touch</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form scale-in">
+                    <form>
+                        <div class="form-group fade-in delay-100">
+                            <input type="text" id="name" name="name" data-lang-key="form-name" placeholder="Your Name" required>
+                        </div>
+
+                        <!-- Contact Method Selection -->
+                        <div class="form-group fade-in delay-150">
+                            <label class="contact-method-label" data-lang-key="contact-method">Preferred contact method:</label>
+                            <div class="contact-method-options">
+                                <label class="contact-option">
+                                    <input type="radio" name="contactMethod" value="telegram" checked>
+                                    <span class="option-text">
+                                        <i class="fab fa-telegram"></i>
+                                        <span data-lang-key="contact-telegram">Telegram</span>
+                                    </span>
+                                </label>
+                                <label class="contact-option">
+                                    <input type="radio" name="contactMethod" value="email">
+                                    <span class="option-text">
+                                        <i class="fas fa-envelope"></i>
+                                        <span data-lang-key="contact-email">Электронная почта</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group fade-in delay-200">
+                            <input type="text" id="contact" name="contact" data-lang-key="form-telegram" placeholder="Your Telegram" required>
+                        </div>
+                        <div class="form-group fade-in delay-300">
+                            <input type="text" id="subject" name="subject" data-lang-key="form-subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group fade-in delay-400">
+                            <textarea id="message" name="message" data-lang-key="form-message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary slide-up delay-500" data-lang-key="send-message">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo fade-in">
+                    <a href="#"><span class="highlight">ZERO</span>POINT</a>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p class="fade-in delay-300" data-lang-key="copyright">&copy; 2025 ZeroPoint. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optimized JavaScript bundle -->
+    <script src="js/optimized.js" defer></script>
+    <script src="js/parallax.js" defer></script>
+    <script src="js/performance-monitor.js" defer></script>
+    <script src="js/video-manager.js" defer></script>
+    <script src="js/telegram-form.js" defer></script>
+</body>
+</html>

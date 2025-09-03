@@ -1,0 +1,353 @@
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Vertical text styling */
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.ken-burns {
+  animation: ken-burns-animation 20s ease-out infinite alternate forwards;
+}
+
+@keyframes ken-burns-animation {
+  0% {
+    transform: scale(1.1) translate(-2%, 2%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+/* Intersection Observer animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide up animations for hero text */
+.slide-up {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-up-delay {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
+}
+
+.slide-up-delay.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from sides animations */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right-delay {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
+}
+
+.slide-in-right-delay.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hero indicators smooth transitions */
+#hero-indicators button {
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#hero-indicators button span {
+  transition: color 0.3s ease-out;
+}
+
+/* Active and inactive indicator states */
+.active-indicator {
+  opacity: 1 !important;
+  transform: scale(1.1) !important;
+}
+
+.inactive-indicator {
+  opacity: 0.7 !important;
+  transform: scale(1) !important;
+}
+
+/* Progress bar smooth animation */
+#hero-progress {
+  transition: none; /* We handle animation in JS */
+}
+
+/* Hero image fade transition */
+#hero-image {
+  transition: opacity 0.3s ease-out;
+}
+
+/* Hero text smooth transitions */
+#hero-title, #hero-location {
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Mobile responsive text sizes for hero section */
+@media (max-width: 640px) {
+  #hero-title {
+    font-size: 2.75rem !important; /* Even larger for better impact */
+    line-height: 1;
+    margin-bottom: 1rem !important;
+  }
+
+  #hero-location {
+    font-size: 1.375rem !important; /* Larger subtitle */
+    letter-spacing: 0.05em;
+    margin-top: 0 !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  #hero-title {
+    font-size: 3.5rem !important; /* Between mobile and tablet sizes */
+  }
+
+  #hero-location {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Mobile layout adjustments for hero section */
+@media (max-width: 640px) {
+  /* Adjust text positioning to prevent overlap - more space for larger text */
+  .text-left {
+    max-width: 60% !important;
+  }
+
+  /* Smaller indicators on mobile to fit larger text */
+  #hero-indicators button span {
+    font-size: 0.7rem !important;
+  }
+
+  /* Fix progress bar dimensions and positioning on mobile */
+  #hero-progress {
+    height: 12px !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 6px !important;
+  }
+
+  /* Make progress bar container taller for better visibility */
+  .slide-in-right-delay {
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Adjust the progress bar background line */
+  .slide-in-right-delay::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(30, 42, 48, 0.4);
+    transform: translateY(-50%);
+    border-radius: 2px;
+  }
+
+  /* Make progress bar more visible on mobile */
+  #hero-progress {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+/* Bounce in animation for tour cards */
+.bounce-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: bounce-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-play-state: paused;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  25% {
+    opacity: 0.4;
+    transform: translateY(15px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  75% {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bounce delay classes for sequential left-to-right animation */
+.bounce-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.bounce-delay-2 {
+  animation-delay: 0.6s;
+}
+
+.bounce-delay-3 {
+  animation-delay: 1.0s;
+}
+
+.bounce-delay-4 {
+  animation-delay: 1.4s;
+}
+
+/* Gallery fade in animation */
+.gallery-fade-in {
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  animation: gallery-fade-in 0.8s ease-out forwards;
+  animation-play-state: paused;
+}
+
+@keyframes gallery-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Gallery delay classes for staggered animation */
+.gallery-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.gallery-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.gallery-delay-3 {
+  animation-delay: 0.5s;
+}
+
+.gallery-delay-4 {
+  animation-delay: 0.7s;
+}
+
+.gallery-delay-5 {
+  animation-delay: 0.9s;
+}
+
+.gallery-delay-6 {
+  animation-delay: 1.1s;
+}
+
+.gallery-delay-7 {
+  animation-delay: 1.3s;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.3s ease-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

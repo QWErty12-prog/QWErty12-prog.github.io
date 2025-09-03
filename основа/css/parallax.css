@@ -1,0 +1,99 @@
+/* Стили для параллакс-эффекта */
+
+/* Основной контейнер для параллакс-эффекта */
+.parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Слои параллакса */
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+/* Сетка на заднем плане */
+.parallax-grid {
+    background-image: url('../images/cyberpunk-grid.svg');
+    background-size: 200% 200%;
+    opacity: 0.3;
+    transform: scale(1);
+    transform-origin: center;
+}
+
+/* Градиентный слой */
+.parallax-glow {
+    background: radial-gradient(circle at center, rgba(230, 57, 70, 0.1) 0%, rgba(13, 13, 13, 0) 70%);
+    opacity: 0.7;
+    transform: scale(1);
+    transform-origin: center;
+    filter: blur(20px);
+}
+
+/* Дополнительный слой для неоновых линий */
+.parallax-lines {
+    background: linear-gradient(45deg, 
+        rgba(230, 57, 70, 0) 0%, 
+        rgba(230, 57, 70, 0.05) 25%, 
+        rgba(230, 57, 70, 0.1) 50%, 
+        rgba(230, 57, 70, 0.05) 75%, 
+        rgba(230, 57, 70, 0) 100%);
+    opacity: 0.5;
+    transform: scale(1) rotate(0deg);
+    transform-origin: center;
+}
+
+/* Анимация пульсации для неонового свечения */
+@keyframes neonPulse {
+    0% {
+        opacity: 0.5;
+        filter: blur(10px);
+    }
+    50% {
+        opacity: 0.7;
+        filter: blur(15px);
+    }
+    100% {
+        opacity: 0.5;
+        filter: blur(10px);
+    }
+}
+
+.parallax-glow {
+    animation: neonPulse 4s infinite ease-in-out;
+}
+
+/* Добавляем стиль для основного контента, чтобы он был поверх фона */
+body {
+    position: relative;
+    z-index: 1;
+}
+
+/* Стиль для создания эффекта киберпанк-сетки на фоне */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(230, 57, 70, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(230, 57, 70, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+    pointer-events: none;
+}
+

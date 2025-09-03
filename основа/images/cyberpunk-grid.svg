@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000px" height="1000px" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e63946" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="#e63946" stop-opacity="0.3"/>
+        </linearGradient>
+    </defs>
+    <g stroke="#e63946" stroke-width="1" fill="none">
+        <!-- Горизонтальные линии -->
+        <line x1="0" y1="0" x2="1000" y2="0" opacity="0.2" />
+        <line x1="0" y1="50" x2="1000" y2="50" opacity="0.2" />
+        <line x1="0" y1="100" x2="1000" y2="100" opacity="0.2" />
+        <line x1="0" y1="150" x2="1000" y2="150" opacity="0.2" />
+        <line x1="0" y1="200" x2="1000" y2="200" opacity="0.2" />
+        <line x1="0" y1="250" x2="1000" y2="250" opacity="0.2" />
+        <line x1="0" y1="300" x2="1000" y2="300" opacity="0.2" />
+        <line x1="0" y1="350" x2="1000" y2="350" opacity="0.2" />
+        <line x1="0" y1="400" x2="1000" y2="400" opacity="0.2" />
+        <line x1="0" y1="450" x2="1000" y2="450" opacity="0.2" />
+        <line x1="0" y1="500" x2="1000" y2="500" opacity="0.3" />
+        <line x1="0" y1="550" x2="1000" y2="550" opacity="0.2" />
+        <line x1="0" y1="600" x2="1000" y2="600" opacity="0.2" />
+        <line x1="0" y1="650" x2="1000" y2="650" opacity="0.2" />
+        <line x1="0" y1="700" x2="1000" y2="700" opacity="0.2" />
+        <line x1="0" y1="750" x2="1000" y2="750" opacity="0.2" />
+        <line x1="0" y1="800" x2="1000" y2="800" opacity="0.2" />
+        <line x1="0" y1="850" x2="1000" y2="850" opacity="0.2" />
+        <line x1="0" y1="900" x2="1000" y2="900" opacity="0.2" />
+        <line x1="0" y1="950" x2="1000" y2="950" opacity="0.2" />
+        <line x1="0" y1="1000" x2="1000" y2="1000" opacity="0.2" />
+
+        <!-- Вертикальные линии -->
+        <line x1="0" y1="0" x2="0" y2="1000" opacity="0.2" />
+        <line x1="50" y1="0" x2="50" y2="1000" opacity="0.2" />
+        <line x1="100" y1="0" x2="100" y2="1000" opacity="0.2" />
+        <line x1="150" y1="0" x2="150" y2="1000" opacity="0.2" />
+        <line x1="200" y1="0" x2="200" y2="1000" opacity="0.2" />
+        <line x1="250" y1="0" x2="250" y2="1000" opacity="0.2" />
+        <line x1="300" y1="0" x2="300" y2="1000" opacity="0.2" />
+        <line x1="350" y1="0" x2="350" y2="1000" opacity="0.2" />
+        <line x1="400" y1="0" x2="400" y2="1000" opacity="0.2" />
+        <line x1="450" y1="0" x2="450" y2="1000" opacity="0.2" />
+        <line x1="500" y1="0" x2="500" y2="1000" opacity="0.3" />
+        <line x1="550" y1="0" x2="550" y2="1000" opacity="0.2" />
+        <line x1="600" y1="0" x2="600" y2="1000" opacity="0.2" />
+        <line x1="650" y1="0" x2="650" y2="1000" opacity="0.2" />
+        <line x1="700" y1="0" x2="700" y2="1000" opacity="0.2" />
+        <line x1="750" y1="0" x2="750" y2="1000" opacity="0.2" />
+        <line x1="800" y1="0" x2="800" y2="1000" opacity="0.2" />
+        <line x1="850" y1="0" x2="850" y2="1000" opacity="0.2" />
+        <line x1="900" y1="0" x2="900" y2="1000" opacity="0.2" />
+        <line x1="950" y1="0" x2="950" y2="1000" opacity="0.2" />
+        <line x1="1000" y1="0" x2="1000" y2="1000" opacity="0.2" />
+
+        <!-- Диагональные линии -->
+        <line x1="0" y1="0" x2="1000" y2="1000" opacity="0.4" stroke-width="2" />
+        <line x1="1000" y1="0" x2="0" y2="1000" opacity="0.4" stroke-width="2" />
+    </g>
+    
+    <!-- Градиентный фон -->
+    <rect x="0" y="0" width="1000" height="1000" fill="url(#gridGradient)" opacity="0.1" />
+</svg>
+
